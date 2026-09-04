@@ -1,0 +1,1 @@
+- [Authentication and checkout boundary](auth-checkout-boundary.md) — Catalog and guest checkout remain usable without Google configuration; order history and admin workspace require sessions.

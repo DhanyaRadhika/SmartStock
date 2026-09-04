@@ -1,0 +1,280 @@
+BUILD COMPLETE PROJECT: SMART INVENTORY & ORDER MANAGEMENT SYSTEM
+
+You are an expert full-stack developer and software architect.
+
+Build a complete, polished, production-style college placement project called:
+
+Smart Inventory & Order Management System
+
+The application is a small-business e-commerce and inventory management platform.
+
+Customers can browse products, add products to a cart, place orders using a simple Cash on Delivery option, and view their orders.
+
+Administrators can manage products, inventory, suppliers, orders, low-stock alerts, and reports.
+
+The application must be genuinely functional from frontend to backend to database.
+
+1. MOST IMPORTANT REQUIREMENTS
+
+Build the ENTIRE application.
+
+Do not create only a UI prototype.
+
+Do not leave TODOs.
+
+Do not leave placeholder buttons.
+
+Do not create fake functionality.
+
+Every button, form, page, API and major feature shown in the UI must work.
+
+Use real REST APIs and MongoDB.
+
+The Angular frontend must communicate with the Node.js/Express backend.
+
+The backend must communicate with MongoDB.
+
+After implementing everything:
+
+Run the application.
+Check for compilation errors.
+Check for runtime errors.
+Check API errors.
+Check MongoDB connection.
+Test the major customer workflow.
+Test the major admin workflow.
+Fix all errors you find.
+Only then consider the project complete.
+
+Do not simply tell me about errors. Fix them yourself.
+
+Prioritize reliability and a clean, understandable architecture over unnecessary complexity.
+
+The application must be easy for a student to understand and explain during a placement interview.
+
+2. TECHNOLOGY STACK
+
+Use:
+
+Frontend
+Angular
+TypeScript
+Angular Router
+Angular Reactive Forms
+Angular HttpClient
+CSS
+Bootstrap 5 if useful for styling
+
+IMPORTANT:
+
+The frontend MUST be Angular.
+
+Do NOT use React.
+
+Do NOT use Next.js.
+
+Do NOT replace Angular with another framework.
+
+Backend
+Node.js
+Express.js
+JavaScript or TypeScript
+
+Use whichever is most reliable with your hosting environment, but keep the code clean and understandable.
+
+Database
+MongoDB
+Mongoose
+
+Use MongoDB for persistent application data.
+
+3. ARCHITECTURE
+
+Use this architecture:
+
+Angular Frontend
+↓
+REST API
+↓
+Node.js + Express
+↓
+MongoDB + Mongoose
+
+Keep frontend and backend logically separated.
+
+Suggested structure:
+
+/client
+/src
+/app
+/components
+/pages
+/services
+/models
+/guards
+
+/server
+/models
+/routes
+/controllers
+/services
+/middleware
+/utils
+
+Adapt the structure if required by your hosting setup, but maintain a clean separation.
+
+4. APPLICATION ROLES
+
+There are TWO types of users:
+
+CUSTOMER
+
+Customers can:
+
+Sign in using Google
+Browse products
+Search products
+Filter products
+View product details
+Add products to cart
+Change cart quantities
+Remove products
+Checkout
+Place orders
+View their own orders
+View order details
+Logout
+ADMIN
+
+Admins can:
+
+Login
+View dashboard
+Manage products
+Manage inventory
+Manage suppliers
+View all orders
+Update order status
+View low-stock alerts
+View reorder recommendations
+View sales reports
+Logout
+5. AUTHENTICATION
+
+Implement real authentication.
+
+Do NOT create a fake login system.
+
+Customers must use:
+
+Continue with Google
+
+Use Google OAuth 2.0 / Google Identity Services appropriately.
+
+The Google authentication must be implemented so that once valid Google OAuth credentials are configured, real Google accounts can log in.
+
+6. GOOGLE LOGIN FLOW
+
+Customer flow:
+
+Landing Page
+↓
+Login Page
+↓
+Continue with Google
+↓
+Google Account Selection
+↓
+Google authenticates the user
+↓
+Backend verifies the Google identity
+↓
+Find user in MongoDB
+↓
+If user doesn't exist, create customer account
+↓
+Create application session
+↓
+Redirect to customer products page
+
+Returning users should not create duplicate accounts.
+
+Use the Google account's:
+
+Google ID
+Name
+Email
+Profile image
+
+Store appropriate information in MongoDB.
+
+NEVER store a Google password.
+
+7. GOOGLE OAUTH CONFIGURATION
+
+Use environment variables or your deployment platform's secret store.
+
+Required variables:
+
+GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET
+GOOGLE_CALLBACK_URL
+SESSION_SECRET
+
+Also use:
+
+MONGODB_URI
+
+Create a .env.example file:
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_CALLBACK_URL=your_callback_url
+SESSION_SECRET=your_random_session_secret
+MONGODB_URI=your_mongodb_connection_string
+
+Never hard-code secrets.
+
+Never expose GOOGLE_CLIENT_SECRET to Angular.
+
+Only the backend can access the Google Client Secret.
+
+8. GOOGLE OAUTH MUST NOT BREAK THE APPLICATION
+
+If Google credentials have not yet been configured:
+
+The application must still start.
+Angular must still compile.
+Backend must still start.
+Do not crash the entire application.
+Show a clear message explaining that Google Sign-In requires OAuth configuration.
+
+Once the credentials are added to your deployment secrets, Google login should work without changing application source code.
+
+Create a clear README section explaining exactly how to configure Google OAuth.
+
+9. USER MODEL
+
+Create a User model:
+
+_id
+googleId
+name
+email
+profileImage
+role
+createdAt
+updatedAt
+
+Roles:
+
+customer
+admin
+
+Every newly registered Google user MUST automatically receive:
+
+role = customer
+
+Customers must never be able to select or change their role.
+
+Do not trust a role supplied by the frontend.

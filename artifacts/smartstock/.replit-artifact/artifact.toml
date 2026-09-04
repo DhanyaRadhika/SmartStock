@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SmartStock Inventory Manager"
+description = "A full-stack retail inventory and order management system with an Angular customer storefront, admin operations workspace, Express REST API, and MongoDB persistence."
+version = "1.0.0"
+id = "artifacts/smartstock"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20091
+
+[services.development]
+run = "pnpm --filter @workspace/smartstock run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/smartstock", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/smartstock/dist/public/browser"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20091"
+BASE_PATH = "/"

@@ -1,0 +1,31 @@
+{
+  "name": "@workspace/smartstock",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NG_CLI_ANALYTICS=false ng serve --host 0.0.0.0 --disable-host-check --port 20091 --proxy-config proxy.conf.json",
+    "build": "cross-env NG_CLI_ANALYTICS=false ng build --configuration production",
+    "serve": "cross-env NG_CLI_ANALYTICS=false ng serve --host 0.0.0.0 --disable-host-check --port 20091 --proxy-config proxy.conf.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.4",
+    "@angular/cli": "^20.3.4",
+    "@angular/compiler-cli": "^20.3.4",
+    "@rollup/rollup-win32-x64-msvc": "^4.63.1",
+    "@types/node": "catalog:",
+    "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "@angular/animations": "^20.3.4",
+    "@angular/common": "^20.3.4",
+    "@angular/compiler": "^20.3.4",
+    "@angular/core": "^20.3.4",
+    "@angular/forms": "^20.3.4",
+    "@angular/platform-browser": "^20.3.4",
+    "@angular/platform-browser-dynamic": "^20.3.4",
+    "@angular/router": "^20.3.4",
+    "rxjs": "~7.8.2",
+    "zone.js": "~0.15.0"
+  }
+}

@@ -1,0 +1,4 @@
+- [Angular dev builds](angular-dev-builds.md) — Angular 20's dev builder needs an explicit app tsconfig and source maps disabled in this workspace.
+- [Artifact API previews](artifact-api-previews.md) — API artifact preview checks may request `/`; keep a lightweight root response alongside `/api/healthz`.
+- [Preview hostnames](preview-hostnames.md) — Angular’s proxied preview host can require dev-server host-check bypass even when binding to 0.0.0.0.
+- [Angular production output](angular-production-output.md) — Angular application builds place browser assets under `dist/public/browser`, so static deployment must serve that directory.
